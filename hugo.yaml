@@ -111,7 +111,7 @@ params:
       disableExperience: false
       disableEducation: false
       disableProjects: false
-      disableAchievements: false
+      disableAchievements: true
       disableContact: false
 
   # Hero
@@ -121,7 +121,7 @@ params:
     title: "Sofiane H. Djerbi"
     subtitle: "Software creator"
     content: "I'm a passionate developer who loves to build and create awesome software. I'm a quick learner and always open to new challenges and opportunities."
-    image: "/images/hero.svg"
+    image: "/images/kitty.png"
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -145,7 +145,7 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/hero.svg"
+    image: "/images/kitty.png"
     content: |-
       I am an enthusiastic software developer with a thirst for challenges, eagerly seeking new opportunities to code and create. Proficient in development and system administration. Let's build something awesome together!
 
@@ -179,6 +179,10 @@ params:
       - job: "Mathematics Tutor"
         company: "DLST"
         companyUrl: "https://dlst.univ-grenoble-alpes.fr/"
+        featuredLink:
+          enable: true
+          name: "View the curriculum"
+          url: "https://dlst.univ-grenoble-alpes.fr/formations/premiere-annee-de-licence-a-grenoble/informatique-mathematiques-et-applications-ima-/informatique-mathematiques-et-applications-ima--125314.kjsp"
         date: "Sep 2021 - Jul 2022"
         content: "I served as a Math Tutor at Université Grenoble Alpes (DLST), where I engaged in weekly monitoring of first-year students, ensuring their comprehension of abstract mathematical concepts, and overseeing a group of students while introducing them to various mathematical topics."
 
@@ -203,7 +207,7 @@ params:
 
   # Achievements
   achievements:
-    enable: true
+    enable: false
     # title: "Custom Name"
     items:
       - title: IM²AG CS Contest
@@ -214,7 +218,6 @@ params:
   # projects
   projects:
     enable: true
-    title: "Experiments"
     items:
       - title: Linearify
         content: "A fast Rust library that allow the serialization of linear game region files. Used to implement Hakaii: A multithreaded fast chunk deleter tool to save up to 95% disk space on backups."
@@ -231,7 +234,7 @@ params:
             url: https://github.com/kugge/Linearify
 
       - title: Kaiiju
-        content: "A Multithreaded Minecraft gameserver that implements a new ZSTD based compression system, saving 50% of disk space. Add options to select and optimize game mechanics."
+        content: "A Multithreaded Minecraft gameserver that implements a new ZSTD based compression system, saving 50% of disk space. Comes with options to select and optimize game mechanics."
         image: /images/projects/kaiiju.png
         badges:
           - "Java"
@@ -251,6 +254,47 @@ params:
         links:
           - icon: fab fa-github
             url: https://github.com/kugge/Nonogram-Solver
+
+      - title: batimg
+        content: A Rust CLI tool that show images and videos directly into the terminal. Uses FFmpeg for video/audio support and Rayon for Multithreading.
+        image: /images/projects/batimg.gif
+        badges:
+          - "Rust"
+          - "Multithreading"
+          - "CLI"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/kugge/batimg
+
+      - title: Chao Resort Island X
+        content: Reverse-engineering a whole game to add new content! Even the game HTTP webserver is reverse-engineered, 10x faster than the original.
+        image: /images/projects/crim.gif
+        badges:
+          - "C#"
+          - "Python"
+          - "Reverse-engineering"
+        featured:
+          name: Webserver
+          link: "https://github.com/kugge/Webserver-Chao-Resort"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/kugge/Chao-Resort-Island-X
+
+      - title: PyBoyEnv
+        content: A Python package allowing to turn any gameboy memory event into a reinforcement learning environment rule. Use any Gameboy game as an OpenAI gym environment!
+        image: /images/projects/pbe.gif
+        badges:
+          - "Python"
+          - "Gym"
+          - "Reinforcement Learning"
+        featured:
+          name: Webserver
+          link: "https://github.com/kugge/Webserver-Chao-Resort"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/kugge/Chao-Resort-Island-X
+
+
 
   #Contact
   contact:
