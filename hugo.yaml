@@ -167,7 +167,7 @@ params:
     # title: "Custom Name"
     items:
       - job: "Student Project Manager (Internship)"
-        company: "CEA Leti / IM²AG"
+        company: "CEA Leti"
         companyUrl: "https://www.leti-cea.fr/"
         date: "Dec 2021 - Apr 2022"
         featuredLink:
