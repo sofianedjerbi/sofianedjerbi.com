@@ -267,7 +267,7 @@ params:
             url: https://github.com/kugge/batimg
 
       - title: Chao Resort Island X
-        content: Reverse-engineering a whole game to add new content! Even the game HTTP webserver is reverse-engineered, 10x faster than the original.
+        content: Reverse-engineering a whole game to add new content! Even the HTTP game webserver is reverse-engineered, 10x faster than the original.
         image: /images/projects/crim.gif
         badges:
           - "C#"
@@ -287,12 +287,9 @@ params:
           - "Python"
           - "Gym"
           - "Reinforcement Learning"
-        featured:
-          name: Webserver
-          link: "https://github.com/kugge/Webserver-Chao-Resort"
         links:
           - icon: fab fa-github
-            url: https://github.com/kugge/Chao-Resort-Island-X
+            url: https://github.com/kugge/PyBoyEnv
 
 
 
