@@ -121,7 +121,7 @@ params:
     title: "Sofiane H. Djerbi"
     subtitle: "Software creator"
     content: "I'm a passionate developer who loves to build and create awesome software. I'm a quick learner and always open to new challenges and opportunities."
-    image: "/images/kitty.png"
+    image: "/images/me.png"
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -145,7 +145,7 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/kitty.png"
+    image: "/images/me.png"
     content: |-
       I am an enthusiastic software developer with a thirst for challenges, eagerly seeking new opportunities to code and create. Proficient in development and system administration. Let's build something awesome together!
 
