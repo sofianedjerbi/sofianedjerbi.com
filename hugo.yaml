@@ -73,7 +73,7 @@ params:
 
   theme:
     # disableThemeToggle: true
-    # defaultTheme: "light" # dark
+    defaultTheme: "light" # dark
 
   font:
     fontSize: 1rem # default: 1rem
@@ -120,8 +120,13 @@ params:
     intro: "Hi, my name is"
     title: "Sofiane H. Djerbi"
     subtitle: "Software creator"
-    content: "I'm a passionate developer who loves to build and create awesome software. I'm a quick learner and always open to new challenges and opportunities."
-    image: "/images/me.png"
+    content:  |-
+      An enthusiastic developer with a passion for reverse engineering and a focus on backend technologies.
+
+      I thrive on utilizing Java, Python, and Rust to create high-performance and secure applications, ensuring a seamless user experience.
+
+      My drive to ensure both functionality and safety reflects in every project I undertake.
+    image: "/images/art.png"
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -234,18 +239,18 @@ params:
             url: https://github.com/kugge/Linearify
 
       - title: Kaiiju
-        content: "A Multithreaded Minecraft gameserver that implements a new ZSTD based compression system, saving 50% of disk space. Comes with options to select and optimize game mechanics."
+        content: "A Multithreaded Minecraft gameserver that implements a new ZSTD based compression system, saving 50% of disk space. It comes with options to select and optimize game mechanics."
         image: /images/projects/kaiiju.png
         badges:
           - "Java"
           - "Gradle"
-          - "Git"
+          - "Reverse-engineering"
         links:
           - icon: fab fa-github
             url: https://github.com/KaiijuMC/Kaiiju/
 
       - title: SAT Nonogram Solver
-        content: A SAT-based nonogram solver, with an automatic nonogram scraper, serializer and deserializer.
+        content: A SAT-based nonogram solver with an automatic nonogram scraper, serializer, and deserializer.
         image: /images/projects/nonogram.png
         badges:
           - "Python"
@@ -256,7 +261,7 @@ params:
             url: https://github.com/kugge/Nonogram-Solver
 
       - title: batimg
-        content: A Rust CLI tool that show images and videos directly into the terminal. Uses FFmpeg for video/audio support and Rayon for Multithreading.
+        content: A Rust CLI tool that shows images and videos directly into the terminal. Uses FFmpeg for video/audio support and Rayon for Multithreading.
         image: /images/projects/batimg.gif
         badges:
           - "Rust"
@@ -281,7 +286,7 @@ params:
             url: https://github.com/kugge/Chao-Resort-Island-X
 
       - title: PyBoyEnv
-        content: A Python package allowing to turn any gameboy memory event into a reinforcement learning environment rule. Use any Gameboy game as an OpenAI gym environment!
+        content: A Python package that allows to turn any Gameboy memory event into a reinforcement learning environment rule. Use any Gameboy game as an OpenAI gym environment!
         image: /images/projects/pbe.gif
         badges:
           - "Python"
@@ -291,7 +296,26 @@ params:
           - icon: fab fa-github
             url: https://github.com/kugge/PyBoyEnv
 
+      - title: ATMEGA-API
+        content: A Python package that provides a high-level API for ATMEGA microcontroller through an FTDI USB device, offering RAM & Flash memory interfaces.
+        image: /images/projects/atmega.jpg
+        badges:
+          - "Python"
+          - "Microcontroller"
+          - "Low-level"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/CEA-IM2AG/ATMEGA-API
 
+      - title: Ethynd
+        content: My first programming project, a small RPG demo game in Python with Pygame. This was a high-shool project.
+        image: /images/projects/ethynd.gif
+        badges:
+          - "Python"
+          - "Pygame"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ProjetIsn2019/Ethynd
 
   #Contact
   contact:
@@ -311,8 +335,8 @@ params:
       path: "blogs"
       count: 3
       title: Recent Posts
-      enable: true
-      disableFeaturedImage: false
+      enable: false
+      disableFeaturedImage: true
     socialNetworks:
       github: https://github.com/Kugge
       # linkedin: https://linkedin.com
