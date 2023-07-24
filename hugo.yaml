@@ -122,9 +122,7 @@ params:
     subtitle: "Software creator"
     content:  |-
       An enthusiastic developer with a passion for reverse engineering and a focus on backend technologies.
-
       My favorite languages are Java, Python, and Rust, each offering unique strengths.
-
       My drive to ensure both functionality and safety reflects in every project I undertake.
     image: "/images/art.png"
     bottomImage:
