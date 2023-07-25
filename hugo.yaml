@@ -223,7 +223,7 @@ params:
     enable: true
     items:
       - title: Linearify
-        content: "A fast Rust library that allow the serialization of linear game region files. Used to implement Hakaii: A multithreaded fast chunk deleter tool to save up to 95% disk space on backups."
+        content: "A fast Rust library that allows the serialization of linear game region files, used to implement Hakaii: A multithreaded fast chunk deleter tool designed to save up to 95% disk space on backups."
         image: /images/projects/linearify.png
         featured:
           name: Demo
@@ -237,7 +237,7 @@ params:
             url: https://github.com/kugge/Linearify
 
       - title: Kaiiju
-        content: "A Multithreaded Minecraft gameserver that implements a new ZSTD based compression system, saving 50% of disk space. It comes with options to select and optimize game mechanics."
+        content: A Multithreaded Minecraft gameserver that incorporates a new ZSTD-based compression system, reducing disk space usage by 50%. It provides options to select and optimize game mechanics.
         image: /images/projects/kaiiju.png
         badges:
           - "Java"
@@ -248,18 +248,18 @@ params:
             url: https://github.com/KaiijuMC/Kaiiju/
 
       - title: SAT Nonogram Solver
-        content: A SAT-based nonogram solver with an automatic nonogram scraper, serializer, and deserializer.
+        content: Use SAT solvers to solve Nonograms, making it an excellent way to benchmark the performance of such solvers. Additionally, it comes with an automatic Nonogram scraper, serializer, and deserializer.
         image: /images/projects/nonogram.png
         badges:
           - "Python"
           - "SAT"
-          - "Pip"
+          - "Benchmarking"
         links:
           - icon: fab fa-github
             url: https://github.com/kugge/Nonogram-Solver
 
       - title: batimg
-        content: A Rust CLI tool that shows images and videos directly into the terminal. Uses FFmpeg for video/audio support and Rayon for Multithreading.
+        content: You can show any media in your terminal with this fast Rust CLI tool. It uses FFmpeg for video/audio support and Rayon for Multithreading.
         image: /images/projects/batimg.gif
         badges:
           - "Rust"
@@ -270,7 +270,7 @@ params:
             url: https://github.com/kugge/batimg
 
       - title: Chao Resort Island X
-        content: Reverse-engineering a whole game to add new content! Even the HTTP game webserver is reverse-engineered, 10x faster than the original.
+        content: Reverse-engineering a whole game to add new content! I even reverse-engineered the HTTP game webserver using Python Flask, making it 10 times faster than the original.
         image: /images/projects/crim.gif
         badges:
           - "C#"
@@ -284,7 +284,7 @@ params:
             url: https://github.com/kugge/Chao-Resort-Island-X
 
       - title: PyBoyEnv
-        content: A Python package that allows to turn any Gameboy memory event into a reinforcement learning environment rule. Use any Gameboy game as an OpenAI gym environment!
+        content: A Python package that allows you to turn any Gameboy memory event into a reinforcement learning environment rule, enabling you to use any Gameboy game as an OpenAI Gym environment!
         image: /images/projects/pbe.gif
         badges:
           - "Python"
@@ -295,7 +295,7 @@ params:
             url: https://github.com/kugge/PyBoyEnv
 
       - title: ATMEGA-API
-        content: A Python package that provides a high-level API for ATMEGA microcontroller through an FTDI USB device, offering RAM & Flash memory interfaces.
+        content: A Python package that offers a high-level API for the ATMEGA microcontroller through an FTDI USB device, providing interfaces for RAM and Flash memory.
         image: /images/projects/atmega.jpg
         badges:
           - "Python"
@@ -306,7 +306,7 @@ params:
             url: https://github.com/CEA-IM2AG/ATMEGA-API
 
       - title: Ethynd
-        content: My first programming project, a small RPG demo game in Python with Pygame. This was a high-shool project.
+        content: My first programming project, a small RPG demo game written in Python with Pygame. This was a high-school project.
         image: /images/projects/ethynd.gif
         badges:
           - "Python"
