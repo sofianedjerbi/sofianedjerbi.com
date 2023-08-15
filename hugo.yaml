@@ -159,9 +159,9 @@ params:
       items:
         - "Java"
         - "Git"
-        - "Python"
+        - "SQL"
         - "C#"
-        - "Rust"
+        - "MongoDB"
         - "Bash"
 
   # Experience
