@@ -237,7 +237,7 @@ params:
             url: https://github.com/kugge/Linearify
 
       - title: Kaiiju
-        content: A Multithreaded Minecraft gameserver that incorporates a new ZSTD-based compression system, reducing disk space usage by 50%. It provides options to select and optimize game mechanics.
+        content: A Multithreaded game server software that incorporates a new ZSTD-based compression system, reducing disk space usage by 50%. It provides options to select and optimize game mechanics.
         image: /images/projects/kaiiju.png
         badges:
           - "Java"
