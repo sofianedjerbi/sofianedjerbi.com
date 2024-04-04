@@ -1,0 +1,16 @@
+.social {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 24px;
+    color: var(--color-primary-bg);
+    a {
+      color: inherit;
+      padding: 8px;
+      display: block;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }

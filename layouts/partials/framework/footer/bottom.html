@@ -1,0 +1,32 @@
+{{ if .Site.Params.bottom.enabled }}
+<div class="bottom">
+  <div class="container relative">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-auto">
+       
+        {{ if .Site.Params.bottom.enable_bottom_menu }}
+          {{ partial "framework/menu/menu-bottom.html" . }}
+        {{ end }}
+        {{ if and (.Site.Params.cookie_banner.enabled) (.Site.Params.cookie_banner.show_manage_cookies_at_bottom) }}
+          <a href="#" data-cc="c-settings">Cookies</a>
+        {{ end }}
+        {{ if .Site.Params.bottom.copyright_text }}
+          <div class="copyright">{{ .Site.Params.bottom.copyright_text }}</div>
+        {{ end }}
+        
+        {{ if .Site.Params.bottom.show_rss_icon }}
+          <a title="RSS Feed" class="feed" href="{{ "/feed.xml" | absLangURL }}">
+            <i class="fa-solid fa-rss"></i>
+          </a>
+        {{ end }}
+        
+      </div>
+      {{ if and (.Site.Params.dark_mode.enable_dark_mode) (.Site.Params.dark_mode.show_dark_mode_toggle_in_bottom) }}
+        <div class="col-auto">
+          {{ partial "framework/components/dark-mode-switcher.html" . }}
+        </div>
+      {{ end }}   
+    </div>
+  </div>
+</div>
+{{ end }}

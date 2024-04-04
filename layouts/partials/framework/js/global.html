@@ -1,0 +1,11 @@
+
+{{ $header := resources.Get "js/framework/header.js" }}
+{{ $hamburger := resources.Get "js/framework/hamburger.js" }}
+
+{{ $js := slice $header $hamburger | resources.Concat "js/bundle.js" }}
+
+{{ if .Site.IsServer }}
+    <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+{{ else }}
+    <script type="text/javascript" src="{{ ($js | minify | fingerprint).RelPermalink }}"></script>
+{{ end }}

@@ -1,0 +1,18 @@
+{{ $columns := 9 }}
+{{ if .content.columns }}{{ $columns = .content.columns }}{{ end }}
+
+{{ $classes := slice "" }}
+{{ $styles := slice "" }}
+
+{{ if .content }}
+    {{ if eq .content.align "left" }}{{ $classes = $classes | append "justify-content-start" }}{{ end }}
+    {{ if eq .content.align "center" }}{{ $classes = $classes | append "justify-content-center" }}{{ end }}
+    {{ if eq .content.align "right" }}{{ $classes = $classes | append "justify-content-end" }}{{ end }}
+{{ end }}
+
+<div class="content">
+    <div class="row{{ delimit $classes " " }}" style="{{ delimit $styles " "  | safeCSS}}">
+        <div class="col-12 col-md-{{ $columns }}">{{.context.Content}}</div>
+    </div>
+</div>
+            

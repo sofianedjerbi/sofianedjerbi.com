@@ -1,0 +1,6 @@
+{{ $path := "static/favicon/favicon.png" }}
+{{ if fileExists $path }}
+    <link rel="icon" type="image/png" href="{{ "/favicon/favicon.png" | absLangURL }}">
+{{ else }}
+    <link rel="icon" type="image/png" href="{{ .Site.Params.logo.logo_image_mobile | absLangURL }}">
+{{ end }}

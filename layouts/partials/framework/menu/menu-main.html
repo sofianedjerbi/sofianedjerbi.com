@@ -1,0 +1,62 @@
+<div class="menu-main">
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+            
+            {{ if .HasChildren }}
+                <li class="menu-item-dropdown {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}">
+                    <a href="{{ .URL | absLangURL }}" class="dropdown-parent" {{ if .Params.external }}target="_blank" rel="noopener"{{ end }}>{{ .Name }} <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        {{ range .Children }}
+                            
+                            <a href="{{ .URL | absLangURL }}" class="dropdown-item {{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
+                                {{ if .Params.icon }}
+                                    <div class="dropdown-item-icon {{ if and (.Name) (.Params.description) }}icon-large{{ end }}"><img alt="{{ .Name }}" width="20" height="20" src="{{ .Params.icon | relURL }}" /></div>
+                                {{ end }}
+                                {{ if .Params.icon_darkmode }}
+                                    <div class="dropdown-item-icon icon-invert {{ if and .Name .Params.description }}icon-large{{ end }}"><img alt="{{ .Name }}" width="20" height="20" src="{{ .Params.icon_darkmode | relURL }}" /></div>
+                                {{ end }}
+                                {{ if .Params.fa_icon }}
+                                    <i class="fa {{ .Params.fa_icon }}" />
+                                {{ end }}
+                                <div class="dropdown-item-content">
+                                    {{ if .Name}}<div class="dropdown-item-name {{ if .Params.description }}dropdown-item-heading{{ end }}">{{ .Name }}</div>{{ end }}
+                                    {{ if .Params.description }}<div class="dropdown-item-description">{{ .Params.description }}</div>{{ end }}
+                                </div>
+                            </a>
+                        {{ end }}
+                    </div>
+                </li>
+            {{ else }}
+                <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active {{ end }}{{ if .Params.button }}menu-item-button {{ end }}">
+                    <a href="{{ .URL | absLangURL }}" {{ if .Params.external }}target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
+                </li>
+            {{end}}
+        {{end}}
+
+        {{ if .Site.IsMultiLingual }}
+            {{ range .Site.Languages }}
+                {{ if eq . $.Site.Language }}
+                    <li class="menu-item-dropdown menu-language-dropdown">
+                        <a href="{{ $.Site.Home.RelPermalink }}" class="dropdown-parent">
+                            
+                            {{ .LanguageName }}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu dropdown-language">
+                           
+                            {{ range $.Translations }}
+                                <a href="{{ .Permalink }}" class="dropdown-item">{{ .Language.LanguageName }}</a>
+                            {{ end }}
+                        </div>
+                    </li>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+
+    </ul>
+  </div>
+  

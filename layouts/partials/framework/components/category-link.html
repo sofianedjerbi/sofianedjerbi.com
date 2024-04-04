@@ -1,0 +1,10 @@
+{{ $show_count:= .show_count | default false }}
+{{ $term_name:= .term }}
+{{ $taxonomyObject := site.Taxonomies.categories }}
+{{ $count:= $taxonomyObject.Count (lower $term_name) }}
+<div class="category-link">
+  <a href="{{ "/categories/" | relLangURL }}{{ $term_name | urlize }}">{{ $term_name }}</a>
+  {{ if $show_count }}
+    <span>({{ $count }})</span> 
+  {{ end }}
+</div>

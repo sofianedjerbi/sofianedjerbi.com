@@ -1,0 +1,4 @@
+{{ if .Site.Params.services.lemon_squeezy.affiliate_store_id }}
+<script>window.lemonSqueezyAffiliateConfig = { store: "{{ .Site.Params.services.lemon_squeezy.affiliate_store_id }}",  debug: {{ .Site.Params.services.lemon_squeezy.debug }} };</script>
+<script src="https://lmsqueezy.com/affiliate.js" defer></script>
+{{ end }}

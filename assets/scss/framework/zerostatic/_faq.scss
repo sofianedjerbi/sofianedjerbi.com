@@ -1,0 +1,16 @@
+.faqs {
+  .faq {
+    border: 1px solid $grey;
+    padding: 20px;
+    margin-bottom: 20px;
+    h3 {
+
+    }
+    p {
+      line-height: 1.4;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

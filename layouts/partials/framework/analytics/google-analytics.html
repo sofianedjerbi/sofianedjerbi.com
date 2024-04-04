@@ -1,0 +1,26 @@
+{{ if and (.Site.IsServer) (.Site.Params.analytics.disable_analytics_on_localhost) }}
+    <!-- Dont add Google analytics to localhost -->
+{{ else }}
+  {{ $cookie_banner_data := "data-cookiecategory='analytics' type='text/plain'" }}
+  {{ $env_google_analytics_id := (getenv "HUGO_GOOGLE_ANALYTICS_ID") }}
+
+    {{ if $env_google_analytics_id }}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{$env_google_analytics_id}}" {{ if .Site.Params.cookie_banner.enabled }}{{ $cookie_banner_data }}{{ end }}></script>
+      <script {{ if .Site.Params.cookie_banner.enabled }}{{ $cookie_banner_data }}{{ end }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', '{{$env_google_analytics_id}}');
+      </script>
+    {{ else if .Site.Params.analytics.google_analytics_id }}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.analytics.google_analytics_id}}" {{ if .Site.Params.cookie_banner.enabled }}{{ $cookie_banner_data }}{{ end }}></script>
+      <script {{ if .Site.Params.cookie_banner.enabled }}{{ $cookie_banner_data }}{{ end }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{.Site.Params.analytics.google_analytics_id}}');
+      </script>
+    {{ end }}
+{{ end }}

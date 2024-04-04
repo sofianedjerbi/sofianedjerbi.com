@@ -1,0 +1,108 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-home{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+    {{ if .Params.lead.enabled }}
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-10 ">
+                    <div class="intro">
+                        {{ $avatar_image_width := .Params.lead.avatar.avatar_image_width  | default "90px" }}
+                        {{ $avatar_image_height := .Params.lead.avatar.avatar_image_height | default "90px" }}
+                        
+                        <div class="lead">
+                            {{ if .Params.lead.avatar.avatar_image }}
+                                <img alt="avatar photo" width="{{ $avatar_image_width }}" height="{{ $avatar_image_height }}" class="avatar" src="{{ .Params.lead.avatar.avatar_image | relURL }}" />
+                            {{ end }}
+                            {{ if .Params.lead.heading }}
+                                <h1>{{ .Params.lead.heading }}</h1>
+                            {{ end }}
+                            {{ if .Params.lead.description }}
+                                <p>{{ .Params.lead.description | safeHTML }}</p>
+                            {{ end }}
+                        </div>
+
+                        {{ if .Params.lead.show_social_media_icons }}
+                            {{ partial "framework/components/social.html" . }}
+                        {{ end }}
+
+                        {{ if .Params.lead.buttons }}
+                        <div class="buttons">
+                            {{ range .Params.lead.buttons }}
+                                {{ partial "framework/components/status.html" . }}    
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    {{ $section := $.Site.GetPage "section" "work" }}
+    {{ $pages := where $.Site.RegularPages "Type" "work" }}
+    {{ $limit := .Params.work.limit | default 12 }}
+    {{ if gt (len $pages) 0 }}
+    <div class="section pt-0">
+        <div class="container">
+            <div class="section-heading pb-2">
+                {{ if .Params.work.heading }}<h2>{{ .Params.work.heading }}</h2>{{ end }}
+                {{ if .Params.work.show_view_all }}
+                    <a href="{{ $section.Permalink | relURL }}">{{ i18n "view_all" }}</a>
+                {{ end }}
+            </div>
+            <div class="row">
+                {{ range first $limit $pages }}
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        {{ partial "theme/summary.html" . }}
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    {{ if .Params.cta.enabled }}
+        <div class="section">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 col-md-10 ">
+                        <div class="cta">
+                                                                    
+                            {{ with .Params.cta }}       
+                                <div class="lead">
+                                    {{ if .heading }}
+                                        <h1>{{ .heading }}</h1>
+                                    {{ end }}
+                                    {{ if .description }}
+                                        <p>{{ .description | safeHTML }}</p>
+                                    {{ end }}
+                                </div>
+                        
+                                {{ if .buttons }}
+                                    <div class="buttons mt-3">
+                                        {{ range .buttons }}
+                                            {{ partial "framework/components/button.html" . }}
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+
+                                <div class="cta-footer">
+                                    {{ $email := printf "%s%s" "mailto:" .email }}
+                                    <a class="cta-email" href="{{ $email }}">{{ .email }}</a>
+                                    {{ $tel := printf "%s%s" "tel:" .phone }}
+                                    <a class="cta-phone" href="{{ $tel | safeURL }}">{{ .phone }}</a>
+                                </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+
+{{ end }}

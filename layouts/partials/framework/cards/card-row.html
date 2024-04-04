@@ -1,0 +1,53 @@
+{{ $cardClasses := slice "" }}
+{{ $cardStyles := slice "" }}
+
+{{ with .card }}
+    {{ if eq .shadow false }}{{ $cardClasses = $cardClasses | append (print "card-no-shadow") }}{{ end }}
+    {{ if eq .border false }}{{ $cardClasses = $cardClasses | append (print "card-no-border") }}{{ end }}
+    {{ if eq .padding false }}{{ $cardClasses = $cardClasses | append (print "card-no-padding") }}{{ end }}
+{{ end }}
+
+<div class="card card-row{{ delimit $cardClasses " "}}" style="{{ delimit $cardStyles " " | safeCSS}}">
+
+    {{ if ne .card.showThumbnail false }}
+        <div class="card-thumbnail">
+            <a href="{{ .context.Permalink }}"><img alt="{{ .context.Title }}" src="{{ .context.Params.thumbnail | relURL }}" /></a>
+        </div>
+    {{ end }}
+
+    <div class="card-content">
+        <div class="card-body">
+            {{ if ne .card.showDate false }}
+                {{ if not .context.Date.IsZero }}
+                    <div class="card-date">{{ .context.Date.Format "Jan 2, 2006" }} </div>
+                {{ end }}
+            {{ end }}
+
+            {{ if ne .card.showTitle false }}
+            <h2 class="card-title">
+                {{ if ne .card.showTitleLink false }}
+                    <a href="{{ .context.Permalink }}">{{ .context.Title }}</a>
+                {{ else }}
+                    {{ .context.Title }}
+                {{ end }}
+            </h2>
+            {{ end }}
+
+            {{ if ne .card.showDescription false }}
+                <p class="card-description">{{ .context.Params.description | truncate 300 }}</p>
+            {{ end }}
+
+            {{ if ne .card.showCategories false }}
+                {{ if .context.Params.categories }}
+                    <div class="card-categories">
+                        <strong>Categories:</strong>
+                        {{ range .context.Params.categories }}
+                            <a class="card-category" href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+
+    </div>
+</div>

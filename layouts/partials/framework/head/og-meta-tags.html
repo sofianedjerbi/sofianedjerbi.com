@@ -1,0 +1,10 @@
+{{ if .Params.open_graph.og_type }}<meta property="og:type" content="{{ .Params.open_graph.og_type }}"/>{{ else }}<meta property="og:type" content="{{ .Site.Params.open_graph.og_type }}"/>{{ end }}
+<meta property="og:url" content="{{ .Permalink }}"/>
+
+{{ if .Params.meta.og_title }}<meta property="og:title" content="{{ .Params.meta.og_title }}"/>{{ else }}<meta property="og:title" content="{{ .Title }}"/>{{ end }}
+{{ if .Params.meta.og_image }}<meta property="og:image" content="{{ .Params.meta.og_image | absLangURL }}"/>{{ else if .Params.image }}<meta property="og:image" content="{{ .Params.image | absLangURL }}"/>{{ end }}
+{{ if .Params.meta.og_description }}<meta property="og:description" content="{{ .Params.meta.og_description | safeHTML }}"/>{{ else if .Params.description }}<meta property="og:description" content="{{ .Params.description | safeHTML }}"/>{{ end }}
+
+{{ if .Site.Params.open_graph.og_twitter_card }}<meta name="twitter:card" content="{{ .Site.Params.open_graph.og_twitter_card }}"/>{{ end }}
+{{ if .Site.Params.open_graph.og_twitter_site }}<meta name="twitter:site" content="{{ .Site.Params.open_graph.og_twitter_site }}"/>{{ end }}
+{{ if .Site.Params.open_graph.og_twitter_creator }}<meta name="twitter:creator" content="{{ .Site.Params.open_graph.og_twitter_creator }}"/>{{ end }}

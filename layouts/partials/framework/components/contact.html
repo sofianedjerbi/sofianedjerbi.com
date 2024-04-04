@@ -1,0 +1,20 @@
+<div class="contact">
+  {{ if .contact.email }}
+    <div class="contact-email">
+      <strong>Email:</strong>
+      <a href="mailto:{{ .contact.email }}">{{ .contact.email }}</a>
+    </div>
+  {{ end }}
+  {{ if .contact.phone }}
+    <div class="contact-phone">
+      <strong>Phone:</strong>
+      {{ .contact.phone }}</div>
+  {{ end }}
+  {{ if .contact.address }}
+    <div class="contact-address">
+      <strong>Address:</strong>
+      {{ .contact.address }} 
+      {{ if .contact.google_map_text_link }}<a href="{{ .contact.google_map_text_link }}" target="_blank" rel="noreferrer">(View Map)</a> {{ end }}
+    </div>
+  {{ end }}
+</div>

@@ -1,0 +1,17 @@
+{{ $full:= .Get "full" }}
+{{ $link:= .Get "link" }}
+{{ $target:= .Get "target" }}
+{{ $src:= .Get "src" }}
+{{ $alt:= .Get "alt" }}
+{{ $title:= .Get "title" }}
+{{ $caption:= .Get "caption" }}
+ 
+<figure {{ with $full }} class="figure-full" {{ end }}>
+  <a href="{{ $link }}" target="{{ $target }}">
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}">
+  </a>
+  <figcaption>
+    <h4>{{ $title }}</h4>
+    <p>{{ $caption }}</p>
+  </figcaption>
+</figure>

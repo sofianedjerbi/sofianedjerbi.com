@@ -1,0 +1,17 @@
+{{ $image := .Get "image" }}
+{{ $heading := .Get "heading" }}
+
+<div class="shortcode-image-card-left">
+  <div class="row">
+    {{ if $image }}
+    <div class="col-12 col-md-4">
+      <img src="{{ $image | relURL }}" />
+    </div>
+    {{ end }}
+    <div></div>
+    <div class="col-12 col-md-8">
+        {{ if $heading }}<h2>{{ $heading }}</h2>{{ end }}
+        {{ .Inner  | markdownify }}
+    </div>
+  </div>
+</div>

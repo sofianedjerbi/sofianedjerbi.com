@@ -1,0 +1,27 @@
+{{ $text := .text | default "" }}
+{{ $url := .url | default nil }}
+{{ $external := .external | default false }}
+{{ $size := .size | default nil }}
+{{ $outline := .outline | default nil }}
+{{ $style := .style | default "primary" }}
+{{ $fa_icon := .fa_icon | default nil }}
+
+{{ $button_styles := slice "button me-1" }}
+{{ if $outline }}{{ $button_styles = $button_styles | append "button-outline" }}{{ end }}
+{{ if eq $style "transparent" }}{{ $button_styles = $button_styles | append "button-transparent" }}{{ end }}
+{{ if eq $style "primary" }}{{ $button_styles = $button_styles | append "button-primary" }}{{ end }}
+{{ if eq $style "light" }}{{ $button_styles = $button_styles | append "button-light" }}{{ end }}
+{{ if eq $style "dark" }}{{ $button_styles = $button_styles | append "button-dark" }}{{ end }}
+{{ if eq $size "small" }}{{ $button_styles = $button_styles | append "button-sm" }}{{ end }}
+{{ if eq $size "large" }}{{ $button_styles = $button_styles | append "button-lg" }}{{ end }}
+
+<a href="{{ if $external }}{{ $url }}{{ else }}{{ $url | relLangURL }}{{ end }}" {{ if $external }}target="_blank" rel="noopener"{{ end }} class="{{ delimit $button_styles " " }}">
+    {{ $text }}
+    {{ if $fa_icon }}<i class="fa {{ $fa_icon }} ms-1"></i>{{ end }}
+    {{ if $external }}
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-1">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    {{ end }}
+</a>
+

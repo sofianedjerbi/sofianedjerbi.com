@@ -1,0 +1,115 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  height: 100%;
+  padding: 0;
+  background-color: var(--color-base-bg);
+  border: 1px solid var(--color-base-bg-2);
+  border-radius: var(--card-border-radius);
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+  .summary-thumbnail {
+    max-height: 300px;
+    overflow: hidden;
+    a {
+      display: block;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .summary-icon {
+    width: 40px;
+    margin-bottom: 10px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .summary-fa-icon {
+    font-size: 28px;
+    color: white;
+  }
+  &.summary-has-thumbnail.summary-has-icon {
+    .summary-icon {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+  .summary-content {
+    padding: 30px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  .summary-title {
+    h2 {
+      font-family: var(--font-family-heading);
+      font-size: 28px;
+      line-height: 1.35;
+      color: var(--color-base-text);
+      font-weight: lighter;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+  }
+  .summary-description {
+    p {
+      line-height: 1.5;
+      color: var(--color-base-text-2);
+    }
+  }
+  .summary-categories {
+    padding-top: 15px;
+    font-size: 15px;
+    .summary-category {
+      border: 1px solid var(--color-base-bg-3);
+      padding: 5px 15px;
+      border-radius: var(--card-button-radius);
+      display: inline-flex;
+    }
+  }
+  .summary-image {
+    width: 60px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .summary-meta {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 15px;
+    .on {
+      margin: 0 4px 0 4px;
+    }
+  }
+  .summary-author {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      height: 26px;
+      width: 26px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+  .summary-date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 500;
+  }
+}

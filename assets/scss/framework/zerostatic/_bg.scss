@@ -1,0 +1,39 @@
+.base-bg {
+    background: var(--color-base-bg);
+    color: var(--color-base-text);
+    h1,
+    h2,
+    p {
+        color: var(--color-base-text);
+    }
+}
+
+.base-bg-2 {
+    background: var(--color-base-bg-2);
+    color: var(--color-base-text);
+    h1,
+    h2,
+    p {
+        color: var(--color-base-text);
+    }
+}
+
+.base-bg-3 {
+  background: var(--color-base-bg-3);
+  color: var(--color-base-text);
+  h1,
+  h2,
+  p {
+      color: var(--color-base-text);
+  }
+}
+
+.primary-bg {
+    background: var(--color-primary-bg);
+    color: var(--color-primary-text);
+    h1,
+    h2,
+    p {
+        color: var(--color-primary-text);
+    }
+}

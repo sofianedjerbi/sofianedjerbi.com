@@ -1,0 +1,36 @@
+<div class="summary {{ if .Params.icon }}summary-has-icon{{ end }}">
+    {{ if .Params.external_link }}
+        <a href="{{ .Params.external_link }}" aria-label="{{ .Title }}" target="_blank" class="summary-link"></a>
+    {{ else }}
+        <a href="{{ .Permalink }}" aria-label="{{ .Title }}" class="summary-link"></a>
+    {{ end }}
+    <div class="summary-content">
+      
+        <span class="summary-external">
+            {{ if .Params.external_link }}
+                <img  width="16" height="16" alt="external link" src="{{ "images/ui/icons8-up-right-50.png" | relLangURL }}" />
+            {{ end }}
+        </span>
+    
+        {{ if .Params.icon }}
+        <div class="summary-icon">
+            <img width="24" height="24" alt="icon" src="{{ .Params.icon | relLangURL }}"/>
+        </div>
+        {{ end }}
+        
+        <div class="summary-title">
+            <h2>{{ .Title }}</h2>
+          
+        </div>
+        <div class="summary-description">
+            <p>{{ .Params.description }}</p>
+        </div>
+        {{ if .Params.categories }}
+        <div class="summary-categories mt-auto">
+            {{ range .Params.categories }}
+                <a class="summary-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{{ $heading := .heading }}
+{{ $sub_heading := .sub_heading }}
+{{ $align := .align | default "left" }}
+
+{{ with and $heading (ne $heading "") }}
+    <div class="col-12">
+        <div class="grid-header grid-header-align-{{ $align }}">
+            <h2>{{ $heading }}</h2>
+            {{ with and $sub_heading (ne $sub_heading "") }}
+            <p class="large">{{ . }}</p>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}

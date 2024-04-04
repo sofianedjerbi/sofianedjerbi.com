@@ -1,0 +1,11 @@
+<div class="cta pt-md-5 pb-md-5">
+    {{ if .cta.heading }}
+        <h2 class="">{{ .cta.heading }}</h2>
+    {{ end }}
+    <p class="">{{ .cta.description }}</p>
+    {{ if .cta.buttons }}
+        {{ range .cta.buttons }}
+            {{ partial "framework/components/button.html" . }}
+        {{ end }}
+    {{ end }}
+</div>

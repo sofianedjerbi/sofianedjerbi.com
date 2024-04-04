@@ -1,0 +1,30 @@
+{{ $summary_classes := slice "" }}
+
+{{ if or (.Params.icon) (.Params.fa_icon) }}{{ $summary_classes = $summary_classes | append "summary-has-icon" }}{{ end }}
+{{ if .Params.thumbnail }}{{ $summary_classes = $summary_classes | append "summary-has-thumbnail" }}{{ end }}
+
+<div class="summary summary-full {{ delimit $summary_classes " " }}">
+    {{ if .Params.thumbnail }}
+        <div class="summary-thumbnail">
+            <a title="{{ .Title }}" href="{{ .Permalink }}"><img width="640" height="360" alt="{{ .Title }}" src="{{ .Params.thumbnail | relURL }}"/></a>
+        </div>
+    {{ end }}
+    {{ if .Params.icon }}
+        <div class="summary-icon">
+            <img src="{{ .Params.icon | relURL }}"/>
+        </div>
+    {{ else if .Params.fa_icon }}
+        <div class="summary-icon summary-fa-icon">
+            <i class="fa {{ .Params.fa_icon }}"></i>
+        </div>
+    {{ end }}
+
+    <div class="summary-content">
+        <div class="summary-title">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        </div>
+        <div class="summary-description">
+            <p>{{ .Params.description }}</p>
+        </div>
+    </div>
+</div>

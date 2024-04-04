@@ -1,0 +1,58 @@
+.shortcode-gallery {
+  &::after {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-base-bg);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .shortcode-gallery-title {
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 4px;
+    font-weight: normal;
+    font-family: var(--font-family-base);
+  }
+}
+
+.shortcode-gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+  cursor: zoom-in;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+  }
+  &.open {
+    padding: 24px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    aspect-ratio: unset;
+    background-color: var(--color-base-bg);
+    z-index: 10;
+    cursor: zoom-out;
+    @include media-breakpoint-up(md) {
+      padding: 48px;
+    }
+    img {
+      object-fit: contain;
+      max-width: 100%;
+    }
+  }
+}

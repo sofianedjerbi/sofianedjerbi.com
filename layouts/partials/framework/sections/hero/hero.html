@@ -1,0 +1,94 @@
+<!-- frontmatter -->
+{{ $align_horizontal := .hero.align_horizontal | default "left"}}
+{{ $align_vertical := .hero.align_vertical | default "middle"}}
+{{ $height := .hero.height | default false }}
+{{ $fullscreen_mobile := .hero.fullscreen_mobile | default false }}
+{{ $fullscreen_desktop := .hero.fullscreen_desktop | default false }}
+{{ $heading := .hero.headings.heading | default "Heading" }}
+{{ $sub_heading := .hero.headings.sub_heading | default false }}
+{{ $text := .hero.headings.text | default false }}
+{{ $text_color := .hero.headings.text_color | default false }}
+{{ $text_color_dark := .hero.headings.text_color_dark | default false }}
+{{ $background_image := .hero.background.background_image | default false }}
+{{ $background_image_blend_mode := .hero.background.background_image_blend_mode | default false }}
+{{ $background_color := .hero.background.background_color | default false }}
+{{ $background_color_dark := .hero.background.background_color_dark | default false }}
+{{ $background_gradient := .hero.background.background_gradient | default false }}
+{{ $opacity := .hero.background.opacity | default 1 }}
+{{ $image := .hero.image.image | default false }}
+{{ $image_shadow := .hero.image.image_shadow | default false }}
+{{ $image_border := .hero.image.image_border | default false }}
+{{ $image_alt := .hero.image.image_alt | default false }}
+
+<!-- classes & styles -->
+{{ $hero_classes := slice "" }}
+{{ $hero_styles := slice "" }}
+{{ $hero_background_image_styles := slice "" }}
+{{ $hero_content_classes := slice "" }}
+{{ $image_classes := slice "" }}
+
+<!-- hero classes -->
+{{ if $fullscreen_mobile }}{{ $hero_classes = $hero_classes | append "hero-fullscreen-mobile" }}{{ end }}
+{{ if $fullscreen_desktop }}{{ $hero_classes = $hero_classes | append "hero-fullscreen-desktop" }}{{ end }}
+{{ if $background_gradient }}{{ $hero_classes = $hero_classes | append "hero-gradient" }}{{ end }}
+
+<!-- hero styles -->
+{{ if $height }}{{ $hero_styles = $hero_styles | append (printf "%s%s%s" "height: " $height ";" )}}{{ end }}
+{{ if $background_color }}{{ $hero_styles = $hero_styles | append (printf "%s%s%s" "background-color: " $background_color ";" )}}{{ end }}
+
+<!-- hero-background-image styles -->
+{{ if and $background_image_blend_mode $background_image }}{{ $hero_background_image_styles = $hero_background_image_styles | append (printf "%s%s%s" "mix-blend-mode: " $background_image_blend_mode ";" )}}{{ end }}
+{{ if $opacity }}{{ $hero_background_image_styles = $hero_background_image_styles | append (printf "%s%s%s" "opacity: " (string $opacity) ";" )}}{{ end }}
+
+<!-- hero-content classes -->
+{{ if eq $align_vertical "top" }}{{ $hero_content_classes = $hero_content_classes | append "align-items-start" }}{{ end }}
+{{ if eq $align_vertical "middle" }}{{ $hero_content_classes = $hero_content_classes | append "align-items-center" }}{{ end }}
+{{ if eq $align_vertical "bottom" }}{{ $hero_content_classes = $hero_content_classes | append "align-items-end" }}{{ end }}
+{{ if eq $align_horizontal "left" }}{{ $hero_content_classes = $hero_content_classes | append "justify-content-start" }}{{ end }}
+{{ if eq $align_horizontal "center" }}{{ $hero_content_classes = $hero_content_classes | append "justify-content-center" }}{{ end }}
+{{ if eq $align_horizontal "right" }}{{ $hero_content_classes = $hero_content_classes | append "justify-content-end" }}{{ end }}
+
+<!-- image classes -->
+{{ if eq $image_shadow true }}{{ $image_classes = $image_classes | append "hero-image-box-shadow" }}{{ end }}
+{{ if eq $image_border true }}{{ $image_classes = $image_classes | append "hero-image-border" }}{{ end }}
+
+
+<!-- Hero Component -->
+<section class="hero{{ delimit $hero_classes " " }}" style="{{ delimit $hero_styles " " | safeCSS }}">
+	<div 
+        class="hero-background-image" style="{{ if $background_image }}background-image: url('{{ $background_image | relURL }}');{{ end }}{{ delimit $hero_background_image_styles " "  | safeCSS}}">
+    </div>
+	<div class="container">
+		<div class="hero-content row{{ delimit $hero_content_classes " " }}">
+
+			{{ if .hero.headings }}
+                <div class="col-12 {{ if $image }}col-md-6{{ else }}col-md-8{{ end }} hero-text">
+                    {{ if $heading }}
+                        <h1>{{ $heading }}</h1>
+                    {{ end }}
+                    {{ if $sub_heading }}
+                        <h2>{{ $sub_heading }}</h2>
+                    {{ end }}
+                    {{ if $text }}
+                        <p>{{ $text }}</p>
+                    {{ end }}
+
+                    {{ if .hero.buttons }}
+                        <div class="hero-buttons">
+                        {{ range .hero.buttons }}
+                            {{ partial "framework/components/button.html" . }}
+                        {{ end }}
+                        </div>
+                    {{ end }}
+                </div>
+			{{ end }}
+
+            {{ if $image }}
+                <div class="col-12 {{ if .hero.headings }}col-md-6{{ else }}col-md-12{{ end }} hero-image">
+                    <img width="600" height="400" {{ if $image_alt }}alt="{{ $image_alt }}"{{ end }} src="{{ $image | relURL }}" class="img-fluid hero-image{{ delimit $image_classes " " }}"/>
+                </div>
+            {{ end }}
+
+		</div>
+	</div>
+</section>

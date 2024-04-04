@@ -1,0 +1,96 @@
+{{ if .Site.Params.footer.enable_footer }}
+<div class="footer">
+    <div class="container">
+
+        <div class="row">
+            {{ if .Site.Params.footer.enable_footer_info }}
+                <div class="col-12 col-md">
+                    <div class="footer-info">
+                        {{ if .Site.Params.footer.footer_logo }}
+                            <a class="footer-logo" href="{{ .Site.BaseURL }}">
+                                <img width="{{ .Site.Params.footer.footer_logo_width | default "32px" }}" height="{{ .Site.Params.footer.footer_logo_height | default "32px" }}" alt="{{ .Site.Title }} Logo" src="{{ .Site.Params.footer.footer_logo | relURL }}" />
+                            </a>
+                        {{ end }}
+                        {{ with .Site.Params.footer.footer_title }}
+                            <h2>{{ . | safeHTML  }}</h2>
+                        {{ end }}
+                        {{ with .Site.Params.footer.footer_description }}
+                            <p>{{ . | safeHTML }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-2"></div>
+            {{ end }}
+ 
+            {{ if .Site.Params.footer.enable_menu_footer_primary }}
+            <div class="col-12 col-md-2 mt-2 mt-md-0">
+                <div class="footer-menu">
+                    {{ if .Site.Params.footer.footer_primary_menu_title }}
+                    <h3>{{ .Site.Params.footer.footer_primary_menu_title }}</h3>
+                    {{ end }}
+                    {{ partial "framework/menu/menu-footer-primary.html" . }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ if .Site.Params.footer.enable_menu_footer_secondary }}
+            <div class="col-12 col-md-2 mt-2 mt-md-0">
+                <div class="footer-menu">
+                    {{ if .Site.Params.footer.footer_secondary_menu_title }}
+                    <h3>{{ .Site.Params.footer.footer_secondary_menu_title }}</h3>
+                    {{ end }}
+                    {{ partial "framework/menu/menu-footer-secondary.html" . }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ if .Site.Params.footer.enable_menu_footer_tertiary }}
+            <div class="col-12 col-md-2 mt-2 mt-md-0">
+                <div class="footer-menu">
+                    {{ if .Site.Params.footer.footer_tertiary_menu_title }}
+                    <h3>{{ .Site.Params.footer.footer_tertiary_menu_title }}</h3>
+                    {{ end }}
+                    {{ partial "framework/menu/menu-footer-tertiary.html" . }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ if .Site.Params.footer.enable_languages }}
+                <div class="col-12 col-md-2 mt-2 mt-md-0">
+                    <div class="footer-menu">
+                        <h3><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" /></svg>
+                           </h3>
+                        {{ if .IsTranslated }}
+                            <ul class="footer-language">
+                                {{ range .Translations }}
+                                <li>
+                                    <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                                </li>
+                                {{ end}}
+                            </ul>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+
+        {{ if and .Site.Params.footer.enable_social_media_links .Site.Data.social }}
+            <div class="row mt-4">
+                <div class="col-12 col-md">
+                    {{ partial "framework/components/social" . }}
+                </div>
+            </div>
+        {{ end }}
+           
+        {{ if .Site.Params.footer.enable_copyright }}
+            <div class="row mt-2">
+                <div class="col-12 col-md">
+                    <div class="copyright">© {{ dateFormat "2006" now }} {{ .Site.Title }} {{ i18n "all_rights_reserved" }}</div>
+                </div>
+            </div>
+        {{ end }}
+
+    </div>
+</div>
+{{ end }}
+

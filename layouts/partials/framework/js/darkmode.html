@@ -1,0 +1,10 @@
+{{ if .Site.Params.dark_mode.enable_dark_mode }}
+    {{ $darkMode := resources.Get "js/framework/darkMode.js" }}
+    {{ $jsDarkMode := slice $darkMode | resources.Concat "js/darkModeBundle.js" }}
+    {{ if .Site.IsServer }}
+        <script type="text/javascript" src="{{ $jsDarkMode.RelPermalink }}"></script>
+    {{ else }}
+        <script type="text/javascript" src="{{ ($jsDarkMode | minify | fingerprint).RelPermalink }}"></script>
+    {{ end }}
+{{ end }}
+

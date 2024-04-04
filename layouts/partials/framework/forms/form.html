@@ -1,0 +1,5 @@
+{{ if .Site.Params.contact_form.use_netlify_form }}
+    {{ partial "framework/forms/netlify-contact-form" . }}
+{{ else if and .Site.Params.contact_form.use_formspree_form .Site.Params.contact_form.formspree_endpoint }}
+    {{ partial "framework/forms/formspree-contact-form.html" . }}
+{{ end }}

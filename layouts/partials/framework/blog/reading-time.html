@@ -1,0 +1,9 @@
+{{ $wordsPerMinute := 200 }}
+{{ $readingTimeMinutes := div .WordCount $wordsPerMinute }}
+{{ $roundedReadingTime := add $readingTimeMinutes 1 | int }}
+
+<div class="d-inline-flex align-items-center reading-time">
+    <i class="fa-regular fa-clock"></i>
+    <p>Reading time: {{ $roundedReadingTime }} minute{{ if ne $roundedReadingTime 1 }}s{{ end }}</p>
+
+</div>

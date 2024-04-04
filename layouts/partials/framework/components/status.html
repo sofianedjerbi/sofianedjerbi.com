@@ -1,0 +1,12 @@
+{{ $external := .external | default "false" }}
+{{ $url := .url | default nil }}
+{{ $text := .text | default nil }}
+
+<a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relLangURL }}{{ end }}" {{ if $external }}target="_blank" rel="noopener"{{ end }} class="status">
+    {{ if .dot }}
+    <svg class="status-light" fill="{{ .dot }}" viewBox="0 0 8 8">
+        <circle cx="4" cy="4" r="3"></circle>
+    </svg>
+    {{ end }}
+    <span class="status-text">{{ .text }}</span>
+</a>

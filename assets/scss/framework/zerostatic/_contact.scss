@@ -1,0 +1,13 @@
+.location {
+    h3 {
+        font-weight: 600;
+    }
+    .location-map-embed {
+        margin-top: 20px;
+        
+        width: 100%;
+        @include media-breakpoint-up(lg) {
+            max-width: 100%;
+        }
+    }
+}

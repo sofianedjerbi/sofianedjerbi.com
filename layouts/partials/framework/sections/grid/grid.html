@@ -1,0 +1,67 @@
+<!-- Get grid size and card type values from frontmatter or use defaults -->
+{{ $partial := "framework/cards/card.html" }}
+{{ if .grid.card.partial }}{{ $partial = printf "%s" .grid.card.partial }}{{ end }}
+{{ $columns := 4 }}
+{{ if .grid.columns }}{{ $columns = .grid.columns }}{{ end }}
+{{ $columnsMobile := 12 }}
+{{ if .grid.columnsMobile }}{{ $columnsMobile = .grid.columnsMobile }}{{ end }}
+
+{{ $marginBottom := "2" }}
+{{ if isset .grid "marginBottom" }}{{ $marginBottom = string .grid.marginBottom }}{{ end }}
+
+<!-- Sort list content -->
+{{ $sortBy := "date" }}
+{{ if .grid.sortBy }}
+{{ $sortBy = printf "%s" .grid.sortBy }}
+{{ end }}
+{{ $type := .grid.contentType }}
+{{ if not .grid.contentType }}
+{{ $type = .context.Type }}
+{{ end }}
+{{ $pages := where .context.Site.RegularPages "Type" $type }}
+{{ $pages = $pages.ByParam $sortBy }}
+
+<!-- Row Alignment -->
+{{ $gridClasses := slice "" }}
+{{ if eq .grid.align "left" }}{{ $gridClasses = $gridClasses | append "justify-content-start" }}{{ end }}
+{{ if eq .grid.align "center" }}{{ $gridClasses = $gridClasses | append "justify-content-center" }}{{ end }}
+{{ if eq .grid.align "right" }}{{ $gridClasses = $gridClasses | append "justify-content-end" }}{{ end }}
+
+<div class="grid">
+    {{ if or (.grid.heading) (.grid.text) }}
+    <div class="row">
+       <div class="col-12">
+           <div class="grid-heading">
+               {{ if .grid.heading }}<h2>{{ .grid.heading }}</h2>{{ end }}
+               {{ if .grid.text }}<p>{{ .grid.text }}</p>{{ end }}
+           </div>
+       </div>
+    </div>
+    {{ end }}
+
+    <div class="row{{ delimit $gridClasses " " }}">
+        {{ if not (gt (len $pages) 0) }}
+        <div class="col-12">
+           No Items Found
+        </div>
+        {{ end }}
+
+        {{ $card := .grid.card }}
+        {{ if .grid.limit }}
+            {{ range first .grid.limit $pages }}
+                <div class="col-{{ $columnsMobile }} col-md-{{ $columns }} mb-1 mt-1 mb-md-2 mt-md-2">
+                    {{ partial $partial (dict "context" . "card" $.grid.card "classes" "") }}
+                </div>
+            {{ end }}
+        {{ else }}
+            {{ range $pages }}
+                <div class="col-{{ $columnsMobile }} col-md-{{ $columns }} mb-1 mt-1 mb-md-2 mt-md-2">
+                    {{ partial $partial (dict "context" . "card" $.grid.card "classes" "") }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+    {{ if .grid.button }}
+        {{ partial "framework/components/button.html" .grid.button }}
+    {{ end }}
+</div>

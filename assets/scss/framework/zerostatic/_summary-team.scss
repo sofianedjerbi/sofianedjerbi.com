@@ -1,0 +1,27 @@
+.summary.summary-team {
+    .summary-thumbnail {
+        max-height: none;
+        // border: 40px solid var(--color-base-bg-2);
+    }
+    .summary-jobtitle {
+      margin: 5px 0;
+    }
+    .summary-content {
+      padding: 20px;
+    }
+    .summary-links {
+      margin-top: 10px;
+      > div {
+        display: flex;
+        align-items: center;
+        padding: 3px 0;
+        i {
+          margin-right: 5px;
+        }
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+  

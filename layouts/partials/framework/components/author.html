@@ -1,0 +1,37 @@
+{{ $name:= .name }}
+{{ $link:= .link }}
+{{ $slug:= replace .name " " "-" | lower }}
+
+<div class="author">
+  {{ with .image }}
+    <div class="author-image">
+      {{ if $link }}
+        <a href="{{ "/authors/" | relLangURL }}{{ $slug | urlize }}">
+          <img src="{{ . | relURL }}" alt="{{ $name }}" />
+        </a>
+      {{ else }}
+        <img src="{{ . | relURL }}" alt="{{ $name }}" />
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ if or $name .date }}  
+    <div class="author-content">
+      {{ with $name }}
+        {{ if $link }}
+          <a class="author-name" href="{{ "/authors/" | relLangURL }}{{ $slug | urlize }}">
+            {{ . }}
+          </a>
+        {{ else }}
+          <div class="author-name">{{ . }}</div>
+        {{ end }}
+      {{ end }}
+      {{ with .date }}
+        <div class="author-date">{{ .Format "2 Jan 2006" }}</div>
+      {{ end }}
+      {{ with .job }}
+        <div class="author-job">{{ . }}</div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

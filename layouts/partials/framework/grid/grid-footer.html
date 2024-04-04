@@ -1,0 +1,17 @@
+{{ $text:= .view_more_button_text | default "View More" }}
+{{ $link:= .view_more_button_link }}
+{{ $align:= .align | default "left" }}
+{{ $icon:= .icon | default "" }}
+
+{{ if and $link (ne $link "") }}
+    <div class="col-12">
+        <div class="grid-footer grid-footer-align-{{ $align }}">
+            <a href="{{ $link }}" class="grid-view-more-button">
+                {{ $text }} 
+                {{ with $icon }}
+                    <i class="fa-solid {{ . }}"></i>
+                {{ end }}
+            </a>
+        </div>
+    </div>
+{{ end }}

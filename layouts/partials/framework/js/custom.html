@@ -1,0 +1,9 @@
+{{ $asset := "js/theme/custom.js" }}
+{{ if (fileExists (printf "assets/%s" $asset)) }}
+  {{ $custom := resources.Get $asset }}
+  {{ if .Site.IsServer }}
+    <script type="text/javascript" src="{{ $custom.RelPermalink }}"></script>
+  {{ else }}
+    <script type="text/javascript" src="{{ ($custom | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

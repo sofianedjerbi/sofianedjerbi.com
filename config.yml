@@ -1,0 +1,168 @@
+baseURL: "https://hugo-lever.netlify.app/"
+title: Hugo Lever
+
+paginate: 3
+enableGitInfo: false
+pygmentsCodeFences: true
+pygmentsCodefencesGuessSyntax: true
+pygmentsUseClasses: true
+metaDataFormat: yaml
+languageCode: "en-us"
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+params:
+  colors:
+  # light
+    base_bg: '#ffffff'
+    base_bg_2: '#fcfcfc'
+    base_bg_3: '#f2f2f2'
+    base_text: '#2f2e2a'
+    base_text_2: '#535247'
+    base_text_3: '#848484'
+    primary_bg: '#46e385'
+    primary_bg_2: '#55f884'
+    primary_bg_3: '#46e385'
+    primary_text: '#114c29'
+    primary_text_2: '#f9f8ef'
+    logo_text: '#202020'
+    menu_text: '#202020'
+    
+    # dark
+    base_bg_dark: '#0b0b0b'
+    base_bg_2_dark: '#212123'
+    base_bg_3_dark: '#7e7e82'
+    base_text_dark: '#ffffff'
+    base_text_2_dark: '#bfc1c2'
+    base_text_3_dark: '#a8a4a4'
+    primary_bg_dark: '#46e385'
+    primary_bg_2_dark: '#55f884'
+    primary_bg_3_dark: '#46e385'
+    primary_text_dark: '#114c29'
+    primary_text_2_dark: '#f9f8ef'
+    logo_text_dark: '#ffffff'
+    menu_text_dark: '#ffffff'
+  
+  fonts:
+    use_google_fonts: true
+    google_fonts_url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Space+Mono&display=swap"
+    use_self_hosted_fonts: true # font files must be placed in /static/fonts folder and the @font-face definitions must be added to /static/fonts/fonts.css
+    heading: Inter
+    base: Inter
+    monospace: Space Mono
+    logo: Inter
+
+  logo:
+    logo_text: "Sofiane H. Djerbi"
+    logo_image_desktop: images/logo/logo.svg
+    logo_image_mobile: images/logo/logo-mobile.svg
+    logo_image_desktop_invert: images/logo/logo-invert.svg # used on transparent header and when in dark mode. Normally a white version of the logo.
+    logo_image_mobile_invert: images/logo/logo-invert-mobile.svg # used on transparent header and when in dark mode. Normally a white version of the logo.
+    logo_image_desktop_height: "32px"
+    logo_image_desktop_width: "32px"
+    logo_image_mobile_height: "32px"
+    logo_image_mobile_width: "32px"
+    show_logo_image_on_mobile: true
+    show_logo_image_on_desktop: true
+    show_logo_text_on_mobile: true
+    show_logo_text_on_desktop: true
+    
+  header: 
+    fixed: true
+
+  open_graph:
+    og_type: "website"
+    og_twitter_card: "summary"
+    og_twitter_site: "@sofianedjerbi"
+    og_twitter_creator: "@sofianedjerbi"
+
+  dark_mode:
+    enable_dark_mode: true
+    show_dark_mode_toggle_in_header: true
+    show_dark_mode_toggle_in_bottom: false
+    show_dark_mode_toggle_in_mobile_menu: true
+
+  cookie_banner:
+    enabled: true
+    show_manage_cookies_at_bottom: true
+
+  analytics:
+    disable_analytics_on_localhost: false # prevents polluting analytics data while developing but enabling can be useful
+    google_analytics_id: "" # G-XXXXXXXXXX
+    gtm_id: "" # GTM-XXXXXXXX
+    plausible_data_domain: "" # mywebsite.com
+    umami_data_website_id: "" # ddd14336-5fb0-4cdd-8f32-e1bfa906cc2b
+    umami_src: "" # https://analytics.eu.umami.is/script.js
+  
+  comments:
+    commento:
+      enabled: false # you must have a commento account and be on the correct domain. does not work locally.
+    disqus:
+      shortname: "" # Your disqus shortcode for example "zerostatic". leave this blank ie "" to disable.
+
+  menu: 
+    show_dropdown_items_in_mobile_menu: false
+    show_social_media_in_mobile_menu: true
+
+  footer:
+    enable_footer: false # show/hide the entire footer
+    footer_title: "Hugo Lever"
+    footer_description: ""
+    enable_social_media_links: true
+    enable_contact_details: false
+    enable_languages: false
+    enable_copyright: false
+    enable_menu_footer_primary: true
+    enable_menu_footer_secondary: false
+    enable_menu_footer_tertiary: false
+    footer_primary_menu_title: "Product"
+    footer_secondary_menu_title: "Menu 2"
+    footer_tertiary_menu_title: "Menu 3"
+
+  bottom:
+    enabled: false # show/hide the entire bottom
+    enable_bottom_menu: true
+    copyright_text: "© 2024 Sofiane Djerbi"
+    show_rss_icon: true
+
+menu:
+  main:
+    - name: Work
+      url: work
+      weight: 1
+    - name: About
+      url: about
+      weight: 2
+  footer_primary:
+    - name: Work
+      pageRef: work
+      weight: 1
+    - name: About
+      pageRef: about
+      weight: 2
+    - name: Privacy Policy
+      pageRef: privacy
+      weight: 3
+    - name: T&C
+      pageRef: terms
+      weight: 4
+    - name: Buy Theme
+      pageRef: https://www.zerostatic.io/theme/hugo-lever/
+      weight: 5
+  bottom:
+    - name: Privacy Policy
+      pageRef: privacy
+      weight: 1
+    - name: Terms and Conditions
+      pageRef: terms
+      weight: 2
+
+permalinks:
+  posts: 'blog/:year/:month/:title/'
+  pages: ':slug/'
+
+taxonomies:
+  tag: tags
+  category: categories
+  portfolio: portfolio
+  author: authors

@@ -1,0 +1,5 @@
+<div class="card-image-only {{ if .classes }}{{ .classes }}{{ end }}">
+    {{ if .context.Params.thumbnail }}
+      <img width="90" height="30" class="img-fluid" alt="{{ .context.Title }}" src="{{ .context.Params.thumbnail | relURL }}" style="{{ if .context.Params.maxWidth }}max-width: {{ .context.Params.maxWidth }};{{ end }}" />
+    {{ end }}
+</div>

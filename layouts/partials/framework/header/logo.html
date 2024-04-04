@@ -1,0 +1,72 @@
+<div class="logos">
+    <div class="logo logo-desktop">
+        {{ if .Site.Params.logo.show_logo_image_on_desktop }}
+        <div class="logo-image">
+            <a href="{{ .Site.Home.RelPermalink }}">
+                <img height="{{ .Site.Params.logo.logo_image_desktop_height }}"
+                    width="{{ .Site.Params.logo.logo_image_desktop_width }}" alt="{{ .Site.Title }} Logo"
+                    src="{{ .Site.Params.logo.logo_image_desktop | relURL }}" />
+            </a>
+        </div>
+        {{ end }}
+
+        {{ if .Site.Params.logo.show_logo_text_on_desktop }}
+        <div class="logo-text"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.logo.logo_text }}</a></div>
+        {{ end }}
+
+    </div>
+
+    <div class="logo logo-desktop-invert">
+        {{ if .Site.Params.logo.show_logo_image_on_desktop }}
+        <div class="logo-image">
+            <a href="{{ .Site.Home.RelPermalink }}">
+                <img height="{{ .Site.Params.logo.logo_image_desktop_height }}"
+                    width="{{ .Site.Params.logo.logo_image_desktop_width }}" alt="{{ .Site.Title }} Logo"
+                    src="{{ .Site.Params.logo.logo_image_desktop_invert | relURL }}" />
+            </a>
+        </div>
+        {{ end }}
+
+        {{ if .Site.Params.logo.show_logo_text_on_desktop }}
+        <div class="logo-text"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.logo.logo_text }}</a></div>
+        {{ end }}
+    </div>
+
+    <div class="logo logo-mobile">
+
+        {{ if .Site.Params.logo.show_logo_image_on_mobile }}
+        <div class="logo-image">
+            <a href="{{ .Site.Home.RelPermalink }}">
+                <img height="{{ .Site.Params.logo.logo_image_mobile_height }}"
+                    width="{{ .Site.Params.logo.logo_image_mobile_width }}" alt="{{ .Site.Title }} Logo"
+                    src="{{ .Site.Params.logo.logo_image_mobile | relURL }}" />
+            </a>
+        </div>
+        {{ end }}
+
+        {{ if .Site.Params.logo.show_logo_text_on_mobile }}
+        <div class="logo-text"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.logo.logo_text }}</a></div>
+        {{ end }}
+
+    </div>
+
+
+    <div class="logo logo-mobile-invert">
+
+        {{ if .Site.Params.logo.show_logo_image_on_mobile }}
+        <div class="logo-image">
+            <a href="{{ .Site.Home.RelPermalink }}">
+                <img height="{{ .Site.Params.logo.logo_image_mobile_height }}"
+                    width="{{ .Site.Params.logo.logo_image_mobile_width }}" alt="{{ .Site.Title }} Logo"
+                    src="{{ .Site.Params.logo.logo_image_mobile_invert | relURL }}" />
+            </a>
+        </div>
+        {{ end }}
+
+        {{ if .Site.Params.logo.show_logo_text_on_mobile }}
+        <div class="logo-text"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.logo.logo_text }}</a></div>
+        {{ end }}
+
+    </div>
+
+</div>

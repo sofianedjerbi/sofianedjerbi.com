@@ -1,0 +1,59 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-default-list{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-10 ">
+                    <div class="intro">
+                        <div class="lead">
+                            <h1>{{ .Title }}</h1>
+                            {{ if .Params.description }}
+                                <p>{{ .Params.description | safeHTML }}</p>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ $pages := .Pages }}
+    {{ $pagesCount := len $pages }}
+    {{ $summaryType := .Params.summary_type }}
+    {{ if gt ($pagesCount) 0 }}
+        <div class="section pt-0">
+            <div class="container ">
+                <div class="row">
+                    {{ range .Pages }}
+                        <div class="col-12 col-md-6 col-lg-4 mb-3">
+                            {{ if $summaryType }}
+                                {{ partial $summaryType . }}
+                            {{ else }}
+                                {{ partial "theme/summary.html" . }}
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    {{ end }}
+
+    {{ if .Content }}
+        <div class="section section-border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="content">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+    
+{{ end }}

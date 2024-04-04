@@ -1,0 +1,19 @@
+.lead {
+    text-align: center;
+    h1 {
+        font-size: 44px;
+        line-height: 1.1;
+        font-weight: 600;
+        color: var(--color-base-text);
+    }
+    p {
+        font-size: 26px;
+        line-height: 1.3;
+        font-weight: 300;
+        color: var(--color-base-text-2);
+    }
+    .avatar {
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+}

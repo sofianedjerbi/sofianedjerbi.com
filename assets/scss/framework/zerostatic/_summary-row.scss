@@ -1,0 +1,15 @@
+.summary.summary-row {
+  flex-direction: row;
+  height: auto;
+  border: none;
+  background-color: var(--color-base-bg);
+  .summary-thumbnail {
+      max-width: 260px;
+      min-height: auto;
+      padding: 0;
+      margin-right: 20px;
+  }
+  .summary-content {
+      padding: 0;
+  }
+}

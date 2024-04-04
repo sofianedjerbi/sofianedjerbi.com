@@ -1,0 +1,10 @@
+{{ if and (.Site.IsServer) (.Site.Params.analytics.disable_analytics_on_localhost) }}
+    <!-- Dont add Google analytics to localhost -->
+{{ else }}
+  {{ $env_plausible_data_domain := (getenv "HUGO_PLAUSIBLE_DATA_DOMAIN") }}
+  {{ if $env_plausible_data_domain }}
+    <script defer data-domain="{{$env_plausible_data_domain}}" src="https://plausible.io/js/plausible.js"></script>
+  {{ else if .Site.Params.analytics.plausible_data_domain }}
+    <script defer data-domain="{{.Site.Params.analytics.plausible_data_domain}}" src="https://plausible.io/js/plausible.js"></script>
+  {{ end }}
+{{ end }}

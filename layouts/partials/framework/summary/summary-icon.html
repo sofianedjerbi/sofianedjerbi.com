@@ -1,0 +1,21 @@
+<div class="summary summary-icon {{ if .Params.icon }}summary-has-icon{{ end }}">
+
+    <div class="summary-content">
+        {{ if .Params.icon }}
+            <div class="summary-icon">
+                <img src="{{ .Params.icon | relURL }}"/>
+            </div>
+        {{ else if .Params.fa_icon }}
+            <div class="summary-icon">
+                <i class="{{ .Params.fa_icon }}"></i>
+            </div>
+        {{ end }}
+        
+        <div class="summary-title">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        </div>
+        <div class="summary-description">
+            <p>{{ .Params.description }}</p>
+        </div>
+    </div>
+</div>

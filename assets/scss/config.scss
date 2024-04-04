@@ -1,0 +1,46 @@
+:root {
+  --font-family-base: {{ .Site.Params.fonts.base }}, sans-serif;
+  --font-family-heading: {{ .Site.Params.fonts.heading }}, sans-serif;
+  --font-family-monospace: {{ .Site.Params.fonts.monospace }}, monospace;
+  --font-family-logo: {{ .Site.Params.fonts.logo }}, sans-serif;
+
+  --color-primary-bg: {{ .Site.Params.colors.primary_bg | default "#2b3af7" }};
+  --color-primary-bg-2: {{ .Site.Params.colors.primary_bg_2 | default "#424ff8" }};
+  --color-primary-bg-3: {{ .Site.Params.colors.primary_bg_3 | default "#702bf7" }};
+  --color-primary-text: {{ .Site.Params.colors.primary_text | default "#ffffff" }};
+  --color-base-bg: {{ .Site.Params.colors.base_bg | default "#ffffff" }};
+  --color-base-bg-2: {{ .Site.Params.colors.base_bg_2 | default "#f8fafc" }};
+  --color-base-bg-3: {{ .Site.Params.colors.base_bg_3 | default "#f1f5f9" }};
+  --color-base-text: {{ .Site.Params.colors.base_text | default "#202020" }};
+  --color-base-text-2: {{ .Site.Params.colors.base_text_2 | default "#4b5563" }};
+  --color-header-text:  {{ .Site.Params.colors.header_text | default "#111827" }};
+  
+  --logo-text-font-size: {{ .Site.Params.logo.logo_text_font_size | default "28px" }};
+  --logo-text-font-weight: {{ .Site.Params.logo.logo_text_font_weight | default "500" }};
+  --header-height: {{ .Site.Params.header.header_height | default "60px" }};
+
+  --menu-font-family: {{ .Site.Params.fonts.base }}, sans-serif;
+  --menu-font-size: {{ .Site.Params.header.header_menu_font_size }};
+  --menu-text-transform: "Capitalize";
+  --menu-font-weight: 400;
+
+  --section-padding: 80px;
+  --card-border-radius: 6px;
+  --button-border-radius: 4px;
+  --card-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+html[data-bs-theme='dark'] {
+  --color-primary-bg: {{ .Site.Params.colors.primary_bg_dark | default .Site.Params.colors.primary_bg }};
+  --color-primary-bg-2: {{ .Site.Params.colors.primary_bg_2_dark | default .Site.Params.colors.primary_bg_2 }};
+  --color-primary-bg-3: {{ .Site.Params.colors.primary_bg_3_dark | default .Site.Params.colors.primary_bg_3 }};
+  --color-primary-text: {{ .Site.Params.colors.primary_text_dark | default .Site.Params.colors.primary_text }};
+  --color-base-bg: {{ .Site.Params.colors.base_bg_dark | default "#121418" }};
+  --color-base-bg-2: {{ .Site.Params.colors.base_bg_2_dark | default "#1d2026" }};
+  --color-base-bg-3: {{ .Site.Params.colors.base_bg_3_dark | default "#24272d" }};
+  --color-base-text: {{ .Site.Params.colors.base_text_dark | default "#F4F4F5" }};
+  --color-base-text-2: {{ .Site.Params.colors.base_text_2_dark | default "#D1D5DB" }};
+  --color-logo-text: {{ .Site.Params.colors.logo_text_dark | default "#F4F4F5" }};
+  --color-header-text:  {{ .Site.Params.colors.header_text_dark | default "#F4F4F5" }};
+}
+

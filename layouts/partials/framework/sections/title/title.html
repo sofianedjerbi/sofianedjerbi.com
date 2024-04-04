@@ -1,0 +1,16 @@
+
+<section class="title">
+    <div class="container">
+        <div class="row">
+            {{ if .image }}
+                <div class="col-12 col-lg-12" style="max-height: 500px; overflow: hidden;">
+                    <img class="img-fluid" src="{{ .image | relURL }}" />
+                </div>
+            {{ end }}
+            <div class="col-12 col-lg-10 pt-4">
+                <h1>{{ .title }}</h1>
+                <h2>{{ .description }}</h2>
+            </div>
+        </div>
+    </div>
+</section>

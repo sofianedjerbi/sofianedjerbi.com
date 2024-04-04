@@ -1,0 +1,13 @@
+<div class="container">
+    {{ partial "framework/header/logo.html" . }}
+    
+    {{ if .Site.Menus.main }}
+        {{ partial "framework/menu/menu-main.html" . }}
+        {{ partial "framework/header/hamburger.html" . }}
+    {{ end }}
+    
+    {{ if and (.Site.Params.dark_mode.enable_dark_mode) (.Site.Params.dark_mode.show_dark_mode_toggle_in_header) }}
+        {{ partial "framework/components/dark-mode-switcher.html" . }}
+    {{ end }}
+    
+</div>

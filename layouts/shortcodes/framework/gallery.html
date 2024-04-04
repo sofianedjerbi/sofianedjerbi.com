@@ -1,0 +1,28 @@
+{{$gallery:= split (.Get "gallery") ", "}}
+{{$gallery_front_matter:= page.Params.gallery}}
+{{$columns:= .Get "columns" | default 3}}
+{{$title:= .Get "title"}}
+<div class="shortcode-gallery row js-gallery">
+    {{ if $gallery_front_matter }}
+    {{ range $gallery_front_matter }}
+            <div class="col-{{div 12 $columns}}">
+                <div class="shortcode-gallery-item">
+                    <img src="{{.}}" alt="{{$title | default "gallery image"}}">
+                </div>
+            </div>
+        {{ end }}
+    {{ else }}
+        {{ range $gallery }}
+            <div class="col-{{div 12 $columns}}">
+                <div class="shortcode-gallery-item">
+                    <img src="{{.}}" alt="{{$title | default "gallery image"}}">
+                </div>
+            </div>
+        {{ end }}
+    {{ end }}
+    {{ with $title }}
+        <div class="col">
+            <h3 class="shortcode-gallery-title">{{ . }}</h3>
+        </div>
+    {{ end }}
+</div>

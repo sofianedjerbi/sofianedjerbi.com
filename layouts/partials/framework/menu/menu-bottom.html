@@ -1,0 +1,10 @@
+<div class="menu-bottom">
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.bottom }}
+            <li class="menu-item-{{ .Name | urlize }}{{ if $currentPage.IsMenuCurrent "bottom" . }} active{{ end }}">
+                <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            </li>
+        {{end}}
+    </ul>
+</div>

@@ -1,0 +1,62 @@
+
+<div class="menu-main-mobile {{ if .Site.Params.menu.show_dropdown_items_in_mobile_menu }}nested{{ end }}" id="menu-main-mobile">
+
+    <div class="menu-main-mobile-top">
+      <div id="close-overlay" class="menu-main-close">
+        <div class="hamburger hamburger-close"></div>
+      </div>
+    </div>
+
+    <div class="menu-main-mobile-center">
+        {{ if .Site.Params.menu.show_dropdown_items_in_mobile_menu }}
+        <ul class="menu">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                    <li class="menu-item-{{ .Name | lower }}{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}">
+                        <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+                        <div class="dropdown">
+                            <ul class="sub-menu">
+                                {{ range .Children }}
+                                    <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                                        <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
+                        <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+                    </li>
+                {{end}}
+            {{end}}
+        </ul>
+        {{ else }}
+            <ul class="menu">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li class="menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
+                    <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </div>
+  
+    <div class="menu-main-mobile-bottom">
+
+        {{ if .Site.Params.menu.show_social_media_in_mobile_menu }}
+            {{ partial "framework/components/social.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.dark_mode.enable_dark_mode }}
+            {{ if .Site.Params.dark_mode.show_dark_mode_toggle_in_mobile_menu }}
+                {{ partial "framework/components/dark-mode-switcher.html" . }}
+            {{ end }}
+        {{ end }}
+
+    </div>
+</div>
+
+  

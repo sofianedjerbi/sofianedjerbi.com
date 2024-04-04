@@ -1,0 +1,12 @@
+{{ if ne site.Params.comments false }}
+{{ if site.Params.comments.commento.enabled }}
+<div class="comments">
+  {{ partial "framework/comments/commento.html" . }}
+</div>
+{{ end }}
+{{ if and site.Params.comments.disqus.shortname (ne site.Params.comments.disqus.shortname "") }}
+<div class="comments">
+  {{ partial "framework/comments/disqus.html" . }}
+</div>
+{{ end }}
+{{ end }}

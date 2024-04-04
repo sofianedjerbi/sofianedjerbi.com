@@ -1,0 +1,51 @@
+{{ $sectionClasses := slice "" }}
+{{ $sectionStyle := slice "" }}
+{{ $container := slice "" }}
+
+{{ if .section.options }}
+    {{ if .section.options.theme }}{{ $sectionClasses = $sectionClasses | append (printf "%s%s" "section-" .section.options.theme) }}{{ end }}
+    {{ if .section.options.classes }}{{ $sectionClasses = $sectionClasses | append .section.options.classes }}{{ end }}
+    {{ if eq .section.options.borderTop true }}{{ $sectionClasses = $sectionClasses | append print "section-border-top" }}{{ end }}
+    {{ if eq .section.options.borderBottom true }}{{ $sectionClasses = $sectionClasses | append print "section-border-bottom" }}{{ end }}
+    {{ if eq .section.options.paddingTop false }}{{ $sectionClasses = $sectionClasses | append "pt-0" }}{{ end }}
+    {{ if eq .section.options.paddingBottom false }}{{ $sectionClasses = $sectionClasses | append "pb-0" }}{{ end }}
+    {{ if .section.options.backgroundColorCustom }}{{ $sectionStyle = $sectionStyle | append (printf "%s%s%s" "background-color:" .section.options.backgroundColorCustom ";" )}}{{ end }}
+{{ end }}
+
+{{ if eq .section.template "hero" }}
+<div class="section{{ delimit $sectionClasses " " }}" style="{{ delimit $sectionStyle " "  | safeCSS}}">
+    {{ partial "framework/sections/hero/hero.html" (dict "context" .context "hero" .section) }}
+</div>
+{{ end }}
+
+{{ if eq .section.template "grid" }}
+<div class="section{{ delimit $sectionClasses " " }}" style="{{ delimit $sectionStyle " "  | safeCSS}}">
+<div class="container{{ delimit $container " " }}">
+    {{ partial "framework/sections/grid/grid.html" (dict "context" .context "grid" .section) }}
+</div>
+</div>
+{{ end }}
+
+{{ if eq .section.template "info" }}
+<div class="section{{ delimit $sectionClasses " " }}" style="{{ delimit $sectionStyle " "  | safeCSS}}">
+<div class="container{{ delimit $container " " }}">
+    {{ partial "framework/sections/info/info.html" (dict "context" .context "info" .section) }}
+</div>
+</div>
+{{ end }}
+
+{{ if eq .section.template "cta" }}
+<div class="section{{ delimit $sectionClasses " " }}" style="{{ delimit $sectionStyle " "  | safeCSS}}">
+<div class="container{{ delimit $container " " }}">
+    {{ partial "framework/sections/cta/cta.html" (dict "context" .context "cta" .section) }}
+</div>
+</div>
+{{ end }}
+
+{{ if eq .section.template "content" }}
+<div class="section{{ delimit $sectionClasses " " }}" style="{{ delimit $sectionStyle " "  | safeCSS}}">
+<div class="container{{ delimit $container " " }}">
+    {{ partial "framework/sections/content/content.html" (dict "context" .context "content" .section) }}
+</div>
+</div>
+{{ end }}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ if .Site.Params.dark_mode.enable_dark_mode }}
+    <script>
+      localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
+    </script>
+    {{ end }}
+
+    {{ partial "framework/head/css.html" . }}
+    {{ partial "framework/head/feed.html" . }}
+    {{ if .Site.Params.favicon.extended }}
+        {{ partial "framework/head/favicon-extended.html" . }}
+    {{ else }}
+        {{ partial "framework/head/favicon.html" . }}
+    {{ end }}
+    {{ partial "framework/head/og-meta-tags.html" . }}
+    {{ partial "framework/head/seo-meta-tags.html" . }}
+    {{ partial "framework/head/fonts.html" . }}
+
+    {{ block "header_css" . }}{{ end }}
+</head>
+
+<body class='page {{ block "body_classes" . }}{{ end }}'>
+
+    {{ if .Site.Menus.main }}
+        {{ partial "framework/menu/menu-main-mobile.html" . }}
+    {{ end }}
+
+    <header id="header" class='header {{ if .Site.Params.header.fixed }}header-fixed{{ end }} {{ if .Params.header_transparent }}header-transparent{{ end }} {{ block "header_classes" . }}{{ end }}'>
+        {{ partial "framework/header/header.html" . }}
+    </header>
+
+    <div id="wrapper" class="wrapper">
+        {{ block "main" . }}{{ end }}
+    </div>
+
+    {{ partial "framework/footer/footer.html" . }}
+    {{ partial "framework/footer/bottom.html" . }}
+
+    {{ partial "framework/js/darkmode.html" . }}
+    {{ partialCached "framework/js/global.html" . }}
+    {{ partialCached "framework/js/custom.html" . }}
+
+    {{ block "footer_js" . }}{{ end }}
+
+    {{ partialCached "framework/cookies/cookie-consent.html" . }}
+
+    {{ partialCached "framework/analytics/analytics.html" . }}
+    {{ partialCached "framework/services/lemon-squeezy.html" . }}
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{{ $avatar_image_width := .avatar.avatar_image_width  | default "90px" }}
+{{ $avatar_image_height := .avatar.avatar_image_height | default "90px" }}
+
+<div class="lead">
+    {{ if .avatar.avatar_image }}
+        <img alt="avatar photo" width="{{ $avatar_image_width }}" height="{{ $avatar_image_height }}" class="avatar" src="{{ .avatar.avatar_image | relURL }}" />
+    {{ end }}
+    {{ if .heading }}
+        <h1>{{ .heading }}</h1>
+    {{ end }}
+    {{ if .description }}
+        <p>{{ .description | safeHTML }}</p>
+    {{ end }}
+</div>
