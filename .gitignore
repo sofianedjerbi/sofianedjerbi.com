@@ -1,2 +1,8 @@
+.DS_Store
+node_modules
+.idea
+.vs_code
+public
+resources
 .hugo_build.lock
 public/
