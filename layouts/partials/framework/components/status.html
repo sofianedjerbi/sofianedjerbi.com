@@ -4,12 +4,12 @@
 
 <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relLangURL }}{{ end }}" {{ if $external }}target="_blank" rel="noopener"{{ end }} class="status">
     {{ if .dot }}
-    <svg class="status-light" fill="{{ .dot }}" viewBox="0 0 8 8">
-        <circle cx="8" cy="8" r="4" fill="none" stroke="{{ .dot }}" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="8" dur="1s" begin="0s" repeatCount="indefinite"/>
+    <svg class="status-light" fill="{{ .dot }}" viewBox="0 0 32 32" overflow="visible">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="{{ .dot }}" stroke-width="5">
+            <animate attributeName="r" from="12" to="24" dur="1s" begin="0s" repeatCount="indefinite"/>
             <animate attributeName="opacity" from="1" to="0" dur="1s" begin="0s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="4" cy="4" r="3"></circle>
+        <circle cx="16" cy="16" r="12"></circle>
     </svg>
     {{ end }}
     <span class="status-text">{{ .text }}</span>
