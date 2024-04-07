@@ -28,7 +28,7 @@ defaults:
     shell: bash
 
 jobs:
-  # Build job
+  # Build job & upload to s3
   build:
     runs-on: ubuntu-latest
     env:
@@ -64,8 +64,18 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
+      - name: Upload to Amazon S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-west-1'
+          SOURCE_DIR: 'public'
 
-  # Deployment job
+  # Deployment to Github Pages
   deploy:
     environment:
       name: github-pages
