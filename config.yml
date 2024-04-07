@@ -1,5 +1,5 @@
-baseURL: "https://hugo-lever.netlify.app/"
-title: Hugo Lever
+baseURL: "https://sofianedjerbi.comm"
+title: Sofiane H. Djerbi
 
 paginate: 3
 enableGitInfo: false
@@ -55,9 +55,9 @@ params:
   logo:
     logo_text: "Sofiane H. Djerbi"
     logo_image_desktop: images/logo/logo.svg
-    logo_image_mobile: images/logo/logo-mobile.svg
+    logo_image_mobile: images/logo/logo.svg
     logo_image_desktop_invert: images/logo/logo-invert.svg # used on transparent header and when in dark mode. Normally a white version of the logo.
-    logo_image_mobile_invert: images/logo/logo-invert-mobile.svg # used on transparent header and when in dark mode. Normally a white version of the logo.
+    logo_image_mobile_invert: images/logo/logo-invert.svg # used on transparent header and when in dark mode. Normally a white version of the logo.
     logo_image_desktop_height: "32px"
     logo_image_desktop_width: "32px"
     logo_image_mobile_height: "32px"
@@ -106,7 +106,7 @@ params:
 
   footer:
     enable_footer: false # show/hide the entire footer
-    footer_title: "Hugo Lever"
+    footer_title: ""
     footer_description: ""
     enable_social_media_links: true
     enable_contact_details: false

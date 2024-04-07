@@ -1,41 +1,42 @@
 ---
-title: "Hugo Lever"
+title: "Sofiane Djerbi"
 date: 2019-02-22
-description: "Lever is minimal personal/bio/portfolio theme for Hugo."
+description: "Back-End Engineer and Architect"
 meta:
-  title: "Hugo Lever - A minimal bio and projects theme"
+  title: "Sofiane H. Djerbi - Presentation"
 
 lead:
   enabled: true
-  heading: "Hi I'm James Mckinner, an AI writer, developer and consultant."
-  description: "My goal is to deliver value to my clients by utilizing my expertise in artificial intelligence and machine learning to solve complex business problems. "
+  heading: "Hi, I'm Sofiane Djerbi, a Back-End Engineer and Architect."
+  description: "My ambition is to boost your team's productivity and sharpen decision-making, ensuring your goals are met more swiftly."
   show_social_media_icons: true
   avatar:
-    avatar_image: "images/avatar/avatar.jpg"
+    avatar_image: "images/avatar/avatar.png"
     avatar_image_height: "120px"
     avatar_image_width: "120px"
   buttons: 
     - button: 
-      url: "https://calendly.com/zerostatic"
+      url: "https://www.linkedin.com/in/sofianedjerbi"
       text: "I'm available for work"
       external: true
       dot: "#46e385" # you can use any color
 
 work:
-  enabled: true
+  enabled: false
   heading: ""
   show_view_all: false
-  limit: 12
+  limit: 6
+
 
 cta:
   enabled: true
-  heading: "Kickstart your Hugo website"
-  description: "Get your own portfolio up and running in hours with our premium template."
-  email: james@domain.com
-  phone: "+61 048 711 800"
+  heading: "Elevate Your Team's Potential"
+  description: "Boost your team's productivity with my backend expertise. Start today!"
+  email: contact@sofianedjerbi.com
+  phone: "+33 695 800 269"
   buttons:
   - button: 
-    url: "https://www.zerostatic.io/theme/hugo-lever/"
-    text: "Buy theme"
+    url: "https://www.linkedin.com/in/sofianedjerbi"
+    text: "Contact me"
     external: true
 ---
