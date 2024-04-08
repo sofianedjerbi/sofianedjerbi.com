@@ -5,12 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{ if .Site.Params.dark_mode.enable_dark_mode }}
-    <script>
-      localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-bs-theme', 'dark');
-    </script>
-    {{ end }}
-
     {{ partial "framework/head/css.html" . }}
     {{ partial "framework/head/feed.html" . }}
     {{ if .Site.Params.favicon.extended }}
