@@ -1,5 +1,5 @@
 baseURL: "https://sofianedjerbi.comm"
-title: Sofiane H. Djerbi
+title: Sofiane Djerbi
 
 paginate: 3
 enableGitInfo: false
@@ -53,7 +53,7 @@ params:
     logo: Inter
 
   logo:
-    logo_text: "Sofiane H. Djerbi"
+    logo_text: "Sofiane Djerbi"
     logo_image_desktop: images/logo/logo.svg
     logo_image_mobile: images/logo/logo.svg
     logo_image_desktop_invert: images/logo/logo-invert.svg # used on transparent header and when in dark mode. Normally a white version of the logo.

@@ -7,7 +7,7 @@ meta:
 
 lead:
   enabled: true
-  heading: "Hi, I'm Sofiane Djerbi, a Back-End Engineer and Architect."
+  heading: "Hi, I'm Sofiane, a Back-End Engineer and Solutions Architect."
   description: "My ambition is to boost your team's productivity and sharpen decision-making, ensuring your goals are met more swiftly."
   show_social_media_icons: true
   avatar:
@@ -22,7 +22,7 @@ lead:
       dot: "#46e385" # you can use any color
 
 work:
-  enabled: false
+  enabled: true
   heading: ""
   show_view_all: false
   limit: 6
