@@ -1,6 +1,6 @@
 ---
-title: "Kotlin Multiplatform Architecture"
-description: "A Brilliant Architectural Idea for Multiplatform Libraries"
+title: "Multiplatform Libraries Architecture"
+description: "Kotlin introduces a brilliant architectural idea for multiplatform libraries"
 date: 	2024-04-07T14:57:35+0000
 categories: ["Kotlin", "Architecture", "Multiplatform"]
 icon: "images/icons/icons8-drawing-compass-50.png"

@@ -44,7 +44,7 @@ params:
     menu_text_dark: '#ffffff'
   
   fonts:
-    use_google_fonts: true
+    use_google_fonts: false
     google_fonts_url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Space+Mono&display=swap"
     use_self_hosted_fonts: true # font files must be placed in /static/fonts folder and the @font-face definitions must be added to /static/fonts/fonts.css
     heading: Inter

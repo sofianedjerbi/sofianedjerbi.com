@@ -1,6 +1,6 @@
 ---
-title: "Gameboy Environment"
-description: "Training AIs on GameBoy games"
+title: "Train your AIs on Gameboy Games"
+description: "Turn any game into a reinforcement learning environment with PyBoyEnv"
 date: 	2024-04-09T07:37:10+0000
 categories: ["Python", "Emulation", "Artificial Intelligence"]
 icon: "images/icons/icons8-artificial-intelligence-50.png"
