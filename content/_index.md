@@ -7,7 +7,7 @@ meta:
 
 lead:
   enabled: true
-  heading: "Hi, I'm Sofiane, a Back-End Engineer and Solutions Architect."
+  heading: "Hi, I'm Sofiane, a Backend Engineer and Solutions Architect."
   description: "My ambition is to boost your team's productivity and sharpen decision-making, ensuring your goals are met more swiftly."
   show_social_media_icons: true
   avatar:
