@@ -83,8 +83,8 @@ params:
     show_dark_mode_toggle_in_mobile_menu: true
 
   cookie_banner:
-    enabled: true
-    show_manage_cookies_at_bottom: true
+    enabled: false
+    show_manage_cookies_at_bottom: false
 
   analytics:
     disable_analytics_on_localhost: false # prevents polluting analytics data while developing but enabling can be useful
@@ -146,9 +146,6 @@ menu:
     - name: T&C
       pageRef: terms
       weight: 4
-    - name: Buy Theme
-      pageRef: https://www.zerostatic.io/theme/hugo-lever/
-      weight: 5
   bottom:
     - name: Privacy Policy
       pageRef: privacy
