@@ -127,14 +127,14 @@ params:
 
 menu:
   main:
-    - name: Work
+    - name: Blog
       url: work
       weight: 1
     - name: About
       url: about
       weight: 2
   footer_primary:
-    - name: Work
+    - name: Blog
       pageRef: work
       weight: 1
     - name: About

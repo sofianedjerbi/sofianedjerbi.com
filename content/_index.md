@@ -3,7 +3,7 @@ title: "Sofiane Djerbi"
 date: 2019-02-22
 description: "Back-End Engineer and Architect"
 meta:
-  title: "Sofiane H. Djerbi - Presentation"
+  title: "Sofiane Djerbi - Presentation"
 
 lead:
   enabled: true
