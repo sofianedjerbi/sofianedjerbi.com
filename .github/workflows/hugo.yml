@@ -61,7 +61,7 @@ jobs:
             --minify \
             --baseURL "https://sofianedjerbi.com/"          
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
       - name: Upload to Amazon S3
